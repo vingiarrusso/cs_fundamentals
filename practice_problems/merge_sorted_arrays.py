@@ -27,7 +27,3 @@ def merge_sorted_arrays(array_list):
 
     return result
 
-
-merge_sorted_arrays([[1,3,5,73,103,107], [2,8,10,15,29,40,194,208], [3,52,84,193,987,1003]])
-
-
