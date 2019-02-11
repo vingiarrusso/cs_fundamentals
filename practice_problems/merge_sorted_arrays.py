@@ -1,4 +1,6 @@
 """
+Elements of Programming Interviews: 10.1
+
 make a min heap out of the first elements of each list
 pop the smallest element off the heap, append to result
 add the next element in the list this element came from to the heap

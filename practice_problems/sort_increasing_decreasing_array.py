@@ -1,4 +1,17 @@
-from merge_sorted_arrays import merge_sorted_arrays
+"""
+Elements of Programming Interviews: 10.2
+
+given an array that has elements in increasing order, then decreasing order, then increasing again, etc.. return
+the fully sorted array
+
+we know that the list starts out increasing, so we will start at the second element.
+every step of the iteration, we have to check the previous item to determine if we are switching directions.
+if we are switching directions, slice off the appropriate section (keep in mind the decreasing section needs to be reversed)
+and add it to the sorted lists.  update starting position to this new element and switch the current direction.
+when finished, we can merge these sorted arrays together.
+"""
+
+from heapq import merge
 
 INCREASING = 0
 DECREASING = 1
@@ -20,6 +33,6 @@ def sort_increasing_decreasing_array(lst):
                 start = i
                 current_direction = DECREASING if current_direction == INCREASING else INCREASING 
 
-    return merge_sorted_arrays(sorted_lists)
+    return merge(sorted_lists) 
 
 sort_increasing_decreasing_array([1,3,4,10,8,7,15,17,9,6,1])
