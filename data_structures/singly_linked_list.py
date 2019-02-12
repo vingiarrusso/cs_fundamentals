@@ -1,8 +1,11 @@
 from linked_list_node import ListNode 
-import pudb
-#pu.db
 
 class LinkedList:
+    """
+    append: O(1)
+    delete: O(n)
+    search: O(n)
+    """
     def __init__(self):
         self.head = None
         self.tail = None
@@ -24,15 +27,23 @@ class LinkedList:
                 self.tail = None # if there's no head, there can be no tail (we deleted the one and only element in the list)
             return self.head
 
-        start = self.head
-        while start.next:
-            if start.next.data == node_data:
-                start.next = start.next.next
+        n = self.head
+        while n.next:
+            if n.next.data == node_data:
+                n.next = n.next.next
                 return self.head
-
-            start = start.next
+            n = n.next
 
         return self.head 
+    
+    def search(self, node_data):
+        n = self.head
+        while n:
+            if n.data == node_data:
+                return n 
+            n = n.next
+        
+        return None
     
     def _print_list(self):
         # for debugging purposes
@@ -44,8 +55,6 @@ class LinkedList:
         print(lst)
         print('head: {}'.format(None if self.head is None else self.head.data))
         print('tail: {}'.format(None if self.tail is None else self.tail.data))
-
-
 
 
 ll = LinkedList()
@@ -64,4 +73,5 @@ ll.append_to_list(ListNode(3))
 ll.append_to_list(ListNode(5))
 ll.delete_node(3)
 ll._print_list()
-
+assert ll.search(5)
+assert not ll.search(3)
