@@ -7,7 +7,7 @@ class LinkedList:
         self.head = None
         self.tail = None
     
-    def append_to_tail(self, node):
+    def append_to_list(self, node):
         if self.head is None:  # lack of list head means this is the first and only node in the list
             self.head = self.tail = node
         else:
@@ -49,19 +49,19 @@ class LinkedList:
 
 
 ll = LinkedList()
-ll.append_to_tail(ListNode(1))
+ll.append_to_list(ListNode(1))
 assert ll.head.data == 1
 assert ll.tail.data == 1
-ll.append_to_tail(ListNode(2))
+ll.append_to_list(ListNode(2))
 assert ll.head.data == 1
 assert ll.tail.data == 2
 ll.delete_node(1)
 ll._print_list()
 ll.delete_node(2)
 ll._print_list()
-ll.append_to_tail(ListNode(1))
-ll.append_to_tail(ListNode(3))
-ll.append_to_tail(ListNode(5))
+ll.append_to_list(ListNode(1))
+ll.append_to_list(ListNode(3))
+ll.append_to_list(ListNode(5))
 ll.delete_node(3)
 ll._print_list()
 
