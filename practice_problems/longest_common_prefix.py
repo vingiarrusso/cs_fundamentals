@@ -19,3 +19,17 @@ def longestCommonPrefix(strs):
           
       prefix.append(current)
     return ''.join(prefix)
+
+# a cool way using zip
+def longestCommonPrefixZ(strs):
+    prefix = []
+    if not strs:
+        return ''
+
+    for letters in zip(*strs):
+        if len(set(letters)) > 1:
+            return ''.join(prefix)
+
+        prefix.append(letters[0])
+
+longestCommonPrefixZ(['corgi', 'corgin', 'corgbutt'])
